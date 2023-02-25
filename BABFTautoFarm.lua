@@ -3,6 +3,7 @@ local player = game:GetService("Players").LocalPlayer
 local tweenService = game:GetService("TweenService")
 local vim = game:GetService("VirtualInputManager")
 local bind = Instance.new("BindableFunction")
+local version = "1.0"
 
 if check then
     game.StarterGui:SetCore("SendNotification", {
@@ -30,7 +31,8 @@ function playTweens()
     workspace.Gravity = 0
     local pos1 = tweenService:Create(player.Character.HumanoidRootPart, tweenStartEnd, {CFrame = CFrame.new(Vector3.new(-55, 50, 50))})
     local pos2 = tweenService:Create(player.Character.HumanoidRootPart, tweenMiddle, {CFrame = CFrame.new(Vector3.new(-55, 50, 8500))})
-    local pos3 = tweenService:Create(player.Character.HumanoidRootPart, tweenStartEnd, {CFrame = CFrame.new(Vector3.new(-55, -358, 9492))})
+    local pos3 = tweenService:Create(player.Character.HumanoidRootPart, tweenStartEnd, {CFrame = CFrame.new(Vector3.new(-55, -360, 9500))})
+    local pos4 = tweenService:Create(player.Character.HumanoidRootPart, tweenStartEnd, {CFrame = CFrame.new(Vector3.new(-55, -360, 9470))})
     
     pos1:Play()
     
@@ -44,6 +46,8 @@ function playTweens()
     
     pos3.Completed:Connect(function()
         workspace.Gravity = 196
+        wait(15)
+        pos4:Play()
     end)
 end
 
@@ -51,6 +55,7 @@ playTweens()
 
 game.Players.LocalPlayer.CharacterAdded:Connect(function()
     wait(3)
+    workspace.Gravity = 0
     local claim = game:GetService("Players")[player.Name].PlayerGui.RiverResultsGui.Frame.BuyButton
     local x, y = claim.AbsolutePosition.X + claim.AbsoluteSize.X / 2, claim.AbsolutePosition.Y + claim.AbsoluteSize.Y / 2
     vim:SendMouseButtonEvent(x, y, 0, true, game, 0)
@@ -60,7 +65,7 @@ end)
 
 game.StarterGui:SetCore("SendNotification", {
     Title = "Auto farm executed";
-    Text = "Made by D4rk. Leave game to disable.";
+    Text = "Made by D4rk. Leave game to disable.\nV"..version;
     Duration = 10;
     Button1 = "Ok.";
 })
