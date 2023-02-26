@@ -15,13 +15,6 @@ elseif game.PlaceId == 10371908957 then
     	Image = "rbxassetid://4483345998",
     	Time = 5
     })
-else
-    OrionLib:MakeNotification({
-    	Name = "Game not supported",
-    	Content = "The game you are trying to exploit is not supported by this hub.",
-    	Image = "rbxassetid://4483345998",
-    	Time = 5
-    })
 end
 
 local chestStealerOn = false
