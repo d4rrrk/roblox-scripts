@@ -41,7 +41,7 @@ getgenv().player = game:GetService("Players").LocalPlayer
 getgenv().chest = game:GetService("Workspace").Thrown:GetChildren()
 getgenv().vim = game:GetService("VirtualInputManager")
 
-local Window = OrionLib:MakeWindow({Name = "Deepwoken Dev", HidePremium = false, SaveConfig = true, ConfigFolder = "MadeByD4rk"})
+local Window = OrionLib:MakeWindow({Name = "Deepwoken Dev", HidePremium = false, SaveConfig = false, ConfigFolder = "Orion"})
 
 local PlayerTab = Window:MakeTab({
 	Name = "Auto farm",
