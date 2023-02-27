@@ -35,7 +35,8 @@ else
 end
 
 local autofarm = false
-local version = "1.0"
+local version = "1.1"
+local executed = false
 getgenv().player = game:GetService("Players").LocalPlayer
 getgenv().tweenService = game:GetService("TweenService")
 getgenv().tweenStartEnd = TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
@@ -111,13 +112,11 @@ AutoFarmSection:AddButton({
             game:GetService("VirtualUser"):CaptureController()
             game:GetService("VirtualUser"):ClickButton2(Vector2.new())
         end)
-        if executed == false then
             OrionLib:MakeNotification({
                 Name = "Anti AFK executed",
                 Content = "You may leave the game running in the background.",
                 Time = 5
             })
-        end
     end
 })
 
@@ -224,6 +223,6 @@ SettingsSection:AddButton({
   	end    
 })
 
-getgenv().executed = true
+local executed = true
 
 OrionLib:Init()
