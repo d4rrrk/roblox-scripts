@@ -64,7 +64,7 @@ function playTweens()
     end)
     
     pos3.Completed:Connect(function()
-        wait(15)
+        wait(12)
         pos4:Play()
     end)
 end
