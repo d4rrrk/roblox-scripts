@@ -19,9 +19,14 @@ DDDDDDDDDDDDD                4444444444 rrrrrrr           kkkkkkkk    kkkkkkk
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
+OrionLib:MakeNotification({
+    Name = "Build A Boat For Treasure",
+    Content = "Made by D4rk#6293",
+    Time = 5
+})
+
 local autofarm = false
 local version = "1.1"
-local executed = false
 getgenv().player = game:GetService("Players").LocalPlayer
 getgenv().tweenService = game:GetService("TweenService")
 getgenv().tweenStartEnd = TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
@@ -48,7 +53,6 @@ function playTweens()
     local pos2 = tweenService:Create(root, tweenMiddle, {CFrame = CFrame.new(Vector3.new(-55, 50, 8500))})
     local pos3 = tweenService:Create(root, tweenStartEnd, {CFrame = CFrame.new(Vector3.new(-55, -360, 9500))})
     local pos4 = tweenService:Create(root, tweenStartEnd, {CFrame = CFrame.new(Vector3.new(-55, -360, 9470))})
-    
     pos1:Play()
     
     pos1.Completed:Connect(function()
@@ -60,7 +64,6 @@ function playTweens()
     end)
     
     pos3.Completed:Connect(function()
-        workspace.Gravity = 196
         wait(15)
         pos4:Play()
     end)
@@ -80,14 +83,18 @@ AutoFarmSection:AddToggle({
                     playTweens() 
                 end
             end)
-        elseif autofarm == false and executed == true then
-            OrionLib:MakeNotification({
-            	Name = "Auto farm disabled",
-            	Content = "Either wait for it to finish, or reset.",
-            	Time = 5
-            })
+        elseif autofarm == false then
+            if executedCheck then
+                workspace.Gravity = 196
+                player.Character:BreakJoints()
+                OrionLib:MakeNotification({
+                    Name = "Auto farm disabled",
+                    Content = "Auto farm has been disabled.",
+                    Time = 5
+                })
+            end
         end
-    end    
+    end
 })
 
 AutoFarmSection:AddButton({
@@ -97,11 +104,11 @@ AutoFarmSection:AddButton({
             game:GetService("VirtualUser"):CaptureController()
             game:GetService("VirtualUser"):ClickButton2(Vector2.new())
         end)
-            OrionLib:MakeNotification({
-                Name = "Anti AFK executed",
-                Content = "You may leave the game running in the background.",
-                Time = 5
-            })
+        OrionLib:MakeNotification({
+            Name = "Anti AFK executed",
+            Content = "You may leave the game running in the background.",
+            Time = 5
+        })
     end
 })
 
@@ -208,6 +215,18 @@ SettingsSection:AddButton({
   	end    
 })
 
-local executed = true
+SettingsSection:AddButton({
+	Name = "Made by D4rk#6293",
+	Callback = function()
+        setclipboard("D4rk#6293")
+        OrionLib:MakeNotification({
+        	Name = "Username copied",
+        	Content = "Discord username copied to clipboard.",
+        	Time = 5
+        })
+  	end
+})
+
+getgenv().executedCheck = true
 
 OrionLib:Init()
