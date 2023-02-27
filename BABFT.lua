@@ -94,7 +94,7 @@ AutoFarmSection:AddToggle({
                     playTweens() 
                 end
             end)
-        elseif autofarm == false then
+        elseif autofarm == false and executed == true then
             OrionLib:MakeNotification({
             	Name = "Auto farm disabled",
             	Content = "Either wait for it to finish, or reset.",
@@ -103,8 +103,6 @@ AutoFarmSection:AddToggle({
         end
     end    
 })
-
-local executed = false
 
 AutoFarmSection:AddButton({
     Name = "Anti AFK",
@@ -225,5 +223,7 @@ SettingsSection:AddButton({
         OrionLib:Destroy()
   	end    
 })
+
+getgenv().executed = true
 
 OrionLib:Init()
