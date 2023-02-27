@@ -22,7 +22,6 @@ if game.PlaceId == 10138901829 then
     OrionLib:MakeNotification({
     	Name = "Execute in-game",
     	Content = "Load into the game, and then execute.",
-    	Image = "rbxassetid://4483345998",
     	Time = 5
     })
     return
@@ -30,7 +29,6 @@ elseif game.PlaceId == 10371908957 then
     OrionLib:MakeNotification({
     	Name = "Deepwoken Dev",
     	Content = "Made by D4rk#6293",
-    	Image = "rbxassetid://4483345998",
     	Time = 5
     })
 end
