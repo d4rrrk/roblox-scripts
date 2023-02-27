@@ -27,6 +27,7 @@ OrionLib:MakeNotification({
 
 local autofarm = false
 local version = "1.1"
+getgenv().executedCheck = false
 getgenv().player = game:GetService("Players").LocalPlayer
 getgenv().tweenService = game:GetService("TweenService")
 getgenv().tweenStartEnd = TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
@@ -212,7 +213,12 @@ SettingsSection:AddButton({
 	Name = "Destroy UI",
 	Callback = function()
         OrionLib:Destroy()
-  	end    
+        if autofarm == true then
+            autofarm = false
+            player.Character:BreakJoints()
+            workspace.Gravity = 196
+        end
+  	end
 })
 
 SettingsSection:AddButton({
