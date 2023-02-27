@@ -40,12 +40,7 @@ getgenv().player = game:GetService("Players").LocalPlayer
 getgenv().chest = game:GetService("Workspace").Thrown:GetChildren()
 getgenv().vim = game:GetService("VirtualInputManager")
 
-
-
-
 local Window = OrionLib:MakeWindow({Name = "Deepwoken Dev", HidePremium = false, SaveConfig = true, ConfigFolder = "Orion"})
-
---Player Tab--
 
 local PlayerTab = Window:MakeTab({
 	Name = "Auto farm",
@@ -134,10 +129,6 @@ game:GetService("RunService").RenderStepped:Connect(function()
     end
 end)
 
---Player Tab End--
-
---Settings Tab--
-
 local SettingsTab = Window:MakeTab({
 	Name = "Settings",
 	PremiumOnly = false
@@ -153,7 +144,5 @@ SettingsSection:AddButton({
         OrionLib:Destroy()
   	end    
 })
-
---Settings End--
 
 OrionLib:Init() --UI Lib End
