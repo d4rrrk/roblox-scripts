@@ -19,21 +19,6 @@ DDDDDDDDDDDDD                4444444444 rrrrrrr           kkkkkkkk    kkkkkkk
 
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
-if game.PlaceId == 537413528 then
-    OrionLib:MakeNotification({
-    	Name = "Build A Boat For Treasure",
-    	Content = "Made by D4rk#6293",
-    	Time = 5
-    })
-else
-    OrionLib:MakeNotification({
-    	Name = "Game not supported",
-    	Content = "The game you are trying to exploit is not supported by this hub.",
-    	Time = 5
-    })
-    return
-end
-
 local autofarm = false
 local version = "1.1"
 local executed = false
