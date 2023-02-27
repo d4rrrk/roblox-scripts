@@ -34,7 +34,7 @@ getgenv().tweenStartEnd = TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.Easi
 getgenv().tweenMiddle = TweenInfo.new(20, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
 getgenv().water = game:GetDescendants()
 
-local Window = OrionLib:MakeWindow({Name = "Build A Boat For Treasure", HidePremium = false, SaveConfig = true, ConfigFolder = "Orion"})
+local Window = OrionLib:MakeWindow({Name = "Build A Boat For Treasure", HidePremium = false, SaveConfig = true, ConfigFolder = "MadeByD4rk"})
 
 local AutoFarmTab = Window:MakeTab({
 	Name = "Auto Farm",
