@@ -36,6 +36,7 @@ end
 
 local chestStealerOn = false
 local chestAutoLoot = false
+getgenv().executedCheck = false
 getgenv().player = game:GetService("Players").LocalPlayer
 getgenv().chest = game:GetService("Workspace").Thrown:GetChildren()
 getgenv().vim = game:GetService("VirtualInputManager")
@@ -141,8 +142,15 @@ local SettingsSection = SettingsTab:AddSection({
 SettingsSection:AddButton({
 	Name = "Destroy UI",
 	Callback = function()
-        OrionLib:Destroy()
+            OrionLib:Destroy()
+	    if chestAutoLoot == true then
+	        chestAutoLoot = false
+	    elseif chestStealerOn == true then
+		chestStealerOn = false
+	    end
   	end    
 })
 
-OrionLib:Init() --UI Lib End
+getgenv().executedCheck = true
+
+OrionLib:Init()
