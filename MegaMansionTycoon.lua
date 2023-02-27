@@ -49,7 +49,7 @@ for _, v in pairs(tycoons) do
     end
 end
 
-local Window = OrionLib:MakeWindow({Name = "Mega Mansion Tycoon", HidePremium = false, SaveConfig = true, ConfigFolder = "Orion"})
+local Window = OrionLib:MakeWindow({Name = "Mega Mansion Tycoon", HidePremium = false, SaveConfig = true, ConfigFolder = "MadeByD4rk"})
 
 local AutoFarmTab = Window:MakeTab({
 	Name = "Auto Farm",
