@@ -205,7 +205,7 @@ MiscSection:AddButton({
     Name = "Auto Build (THIRD PARTY, NOT MADE BY ME)",
     Callback = function()
         if autoBuildexec == false then 
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/max2007killer/auto-build-not-limit/main/autobuild.txt"))() --// Not made by D4rk#6293
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/max2007killer/auto-build-not-limit/main/autobuild.txt"))()
         else
             OrionLib:MakeNotification({
             	Name = "Auto Builder already executed",
@@ -234,6 +234,9 @@ SettingsSection:AddButton({
             autofarm = false
             player.Character:BreakJoints()
             workspace.Gravity = 196
+        end
+        if game:GetService("CoreGui"):FindFirstChild("Lib") then
+            game:GetService("CoreGui").Lib:Destroy()
         end
   	end
 })
