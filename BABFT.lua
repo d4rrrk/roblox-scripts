@@ -28,6 +28,7 @@ OrionLib:MakeNotification({
 local autofarm = false
 local version = "1.1"
 getgenv().executedCheck = false
+getgenv().autoBuildexec = false
 getgenv().player = game:GetService("Players").LocalPlayer
 getgenv().tweenService = game:GetService("TweenService")
 getgenv().tweenStartEnd = TweenInfo.new(0.25, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
@@ -197,6 +198,22 @@ MiscSection:AddButton({
         	Content = "Water has been deleted.",
         	Time = 5
         })
+    end
+})
+
+MiscSection:AddButton({
+    Name = "Auto Build (THIRD PARTY, NOT MADE BY ME)",
+    Callback = function()
+        if autoBuildexec == false then 
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/max2007killer/auto-build-not-limit/main/autobuild.txt"))() --// Not made by D4rk#6293
+        else
+            OrionLib:MakeNotification({
+            	Name = "Auto Builder already executed",
+            	Content = "Not made by me.",
+            	Time = 5
+            })
+        end
+        getgenv().autoBuildexec = true
     end
 })
 
