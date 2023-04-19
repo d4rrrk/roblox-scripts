@@ -1,3 +1,5 @@
+print("hello")
+
 game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 
 repeat wait(0.1) until game.Players.LocalPlayer:FindFirstChild("Character")
