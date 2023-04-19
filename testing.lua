@@ -1,3 +1,5 @@
+repeat wait(1) until game:IsLoaded()
+
 print("this script was executed on rejoining")
 
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
