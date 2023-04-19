@@ -1,6 +1,6 @@
-repeat wait(10) until game:IsLoaded()
+local gui = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("StartMenu")
 
-if game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("StartMenu") then
+if gui then
     game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 end
 
