@@ -40,6 +40,8 @@ player.Idled:connect(function()
     virtual:ClickButton2(Vector2.new())
 end)
 
+syn.queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))
+
 local checkLoop = run.RenderStepped:Connect(function()
     druidCheck()
     for _, v in pairs(players:GetPlayers()) do
@@ -54,5 +56,3 @@ local checkLoop = run.RenderStepped:Connect(function()
         end
     end
 end)
-
-syn.queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))
