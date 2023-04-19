@@ -1,6 +1,8 @@
 repeat wait(1) until game:IsLoaded()
 
-game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
+if game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("StartMenu") then
+    game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
+end
 
 local function hop(msg)
     game:GetService("StarterGui"):SetCore("PromptBlockPlayer", game.Players:GetPlayers()[math.random(2,#game.Players:GetPlayers())])
@@ -13,38 +15,27 @@ local function hop(msg)
     game:GetService("TeleportService"):Teleport(3016661674, game.Players.LocalPlayer)
 end
 
-local function druidCheck()
-    for _, v in pairs(game:GetService("Players"):GetChildren()) do
-        if v.Character and v.Name ~= game:GetService("Players").LocalPlayer then
-            if v.Backpack:FindFirstChild("Perflora") or v.Character:FindFirstChild("Perflora") then
-                hop("Druid "..(v.Name).." in server...")
-            end
-        end
+
+for _, v in pairs(game:GetService("Players"):GetDescendants()) do
+    if v:IsA("Tool") and v.Name == "Perflora" then
+        hop("Druid in game.") 
     end
 end
 
-game:GetService("Players").LocalPlayer.Idled:connect(function()
-    game:GetService("VirtualUser"):CaptureController()
-    game:GetService("VirtualUser"):ClickButton2(Vector2.new())
+game:GetService("Players").DescendantAdded:Connect(function(item)
+    if item.Name == "Perflora" and item:IsA("Tool") then
+        game:GetService("Players").LocalPlayer:Kick("Druid in game.") 
+    end
 end)
 
 syn.queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))
 
 game:GetService("RunService").RenderStepped:Connect(function()
-    druidCheck()
-    local live = game:GetService("Workspace").Live
-    local player = players.LocalPlayer
-    local root = player.Character.HumanoidRootPart
-    
-    for _, v in pairs(live:GetChildren()) do
-        if string.sub(v.Name, 1, 1) ~= "." and v.Name ~= game.Players.LocalPlayer.Name then
-            if v.Character ~= nil then
-                local rootPos = root.Position
-                local otherPos = v.HumanoidRootPart.Position
-                local mag = math.round((rootPos - otherPos).Magnitude)
-                if mag <= 1000 then
-                    hop("Player ("..v.Name..") too close.")
-                end
+    for _, v in pairs(game.Players:GetPlayers()) do
+        if v.Name ~= player.Name and v.Character ~= nil then
+            local distance = (v.Character.HumanoidRootPart.Position - player.Character.HumanoidRootPart.Position).Magnitude
+            if distance <= 1000 then
+                hop("Player too close.")
             end
         end
     end
