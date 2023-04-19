@@ -34,6 +34,39 @@ local function druidCheck()
     end
 end
 
+local function ping(msg)
+    local hook = "https://discord.com/api/webhooks/1098287215169261670/QA7dJsapdy5TmvWYvren1WuMCOvrkz-RA7l-e1MUGV8s3kFcowLovSS7Hm_RNB-3t7eN"
+    
+    syn.request({
+        Url = hook,
+        Method = "POST",
+        Headers = {
+            ["Content-Type"] = "application/json"
+        },
+            Body = game:GetService("HttpService"):JSONEncode({content = msg})
+    })
+end
+
+local function dayCheck()
+    local lives = game:GetService("Players").chappedLips609.PlayerGui.StatGui.Container.Health.Lives
+    
+    local days = {}
+    
+    for i, v in pairs(lives:GetChildren()) do
+        if v.Name ~= "Back" then
+            if i ~= 2 then
+                table.insert(days, v.Char.Text)
+            end
+        end
+    end
+    
+    local str = table.concat(days)
+    
+    ping("Current number of days: "..str)
+end
+
+dayCheck()
+
 player.Idled:connect(function()
     virtual:CaptureController()
     virtual:ClickButton2(Vector2.new())
@@ -58,7 +91,7 @@ local check = game:GetService("RunService").RenderStepped:Connect(function()
     end
     
     if closestPlayer then
-        player:Kick("Player ("..closestPlayer..") too close...")
-        check:Disconnect()
+        hop("Player ("..closestPlayer..") too close")
+        wait(10)
     end
 end)
