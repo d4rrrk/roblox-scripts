@@ -1,4 +1,4 @@
-print("hello")
+repeat wait(0.1) until game:IsLoaded()
 
 game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 
@@ -55,6 +55,4 @@ local checkLoop = run.RenderStepped:Connect(function()
     end
 end)
 
-game:GetService("Players").LocalPlayer.OnTeleport:Connect(function()
-    syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))()]])
-end)
+syn.queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))
