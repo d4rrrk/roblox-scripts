@@ -54,5 +54,5 @@ local checkLoop = run.RenderStepped:Connect(function()
 end)
 
 game:GetService("Players").LocalPlayer.OnTeleport:Connect(function(State)
-    syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))]])
+    syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))()]])
 end)
