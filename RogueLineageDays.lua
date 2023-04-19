@@ -1,4 +1,8 @@
-repeat wait(1) until game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")
+repeat wait(1) until game.Players:IsLoaded()
+
+if game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("StartMenu") then
+    game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
+end
 
 syn.queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))
 
