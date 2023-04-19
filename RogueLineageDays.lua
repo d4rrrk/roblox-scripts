@@ -4,13 +4,12 @@ game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 
 repeat wait(0.1) until game.Players.LocalPlayer:FindFirstChild("Character")
 
-local distanceToLog = 1000
+local logDist = 1000
 
 local players = game:GetService("Players")
 local player = players.LocalPlayer
 local live = game:GetService("Workspace").Live
 local virtual = game:GetService("VirtualUser")
-local run = game:GetService("RunService")
 
 local function hop(msg)
     local vim = game:GetService("VirtualInputManager")
@@ -42,17 +41,24 @@ end)
 
 syn.queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))
 
-local checkLoop = run.RenderStepped:Connect(function()
+local check = game:GetService("RunService").RenderStepped:Connect(function()
     druidCheck()
+    local players = game:GetService("Players")
+    local player = players.LocalPlayer
     for _, v in pairs(players:GetPlayers()) do
-        local plrPos = player.Character.HumanoidRootPart.Position
-        local otherPos = v.Character.HumanoidRootPart.Position
-        local mag = (plrPos - otherPos).Magnitude
-        if mag <= distanceToLog then
-            hop("Player too close...")
-            wait(1)
-            game:GetService("TeleportService"):Teleport(3016661674, player)
-            break
+        if v.Name ~= player.Name then
+            local plrPos = player.Character.HumanoidRootPart.Position
+            local otherPos = v.Character.HumanoidRootPart.Position
+            local mag = (plrPos - otherPos).Magnitude
+            if mag <= logDist then
+                logDist = mag
+                closestPlayer = v.Name
+            end
         end
+    end
+    
+    if closestPlayer then
+        player:Kick("Player ("..closestPlayer..") too close...")
+        check:Disconnect()
     end
 end)
