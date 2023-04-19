@@ -52,3 +52,5 @@ local checkLoop = run.RenderStepped:Connect(function()
         end
     end
 end)
+
+syn.queue_on_teleport("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua")
