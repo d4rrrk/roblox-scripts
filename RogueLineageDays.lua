@@ -1,4 +1,7 @@
-local gui = game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("StartMenu")
+repeat wait(1) until game:IsLoaded()
+
+local playergui  = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+local gui = playergui:WaitForChild("StartMenu")
 
 if gui then
     game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
@@ -20,14 +23,12 @@ end
 for _, v in pairs(game:GetService("Players"):GetDescendants()) do
     if v:IsA("Tool") and v.Name == "Perflora" then
         hop("Druid in game.")
-        return
     end
 end
 
 game:GetService("Players").DescendantAdded:Connect(function(item)
     if item.Name == "Perflora" and item:IsA("Tool") then
         hop("Druid in game.")
-        return
     end
 end)
 
