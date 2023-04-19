@@ -1,6 +1,6 @@
 repeat wait(1) until game:IsLoaded()
 
-local playergui  = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
+local playergui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 local gui = playergui:WaitForChild("StartMenu")
 
 if gui then
