@@ -5,15 +5,20 @@ repeat wait(1) until game:IsLoaded()
 local playergui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 local gui = playergui:WaitForChild("StartMenu")
 
+local hasHopped = false
+
 local function hop(msg)
-    game:GetService("StarterGui"):SetCore("PromptBlockPlayer", game.Players:GetPlayers()[math.random(2,#game.Players:GetPlayers())])
-    wait(0.3)
-    game:GetService("VirtualInputManager"):SendMouseButtonEvent(882, 640, 0, true, game, 0)
-    game:GetService("VirtualInputManager"):SendMouseButtonEvent(883, 640, 0, false, game, 0)
-    wait(0.5)
-    game.Players.LocalPlayer:Kick(msg)
-    wait(1)
-    game:GetService("TeleportService"):Teleport(3016661674, game.Players.LocalPlayer)
+    if not hasHopped then
+        hasHopped = true
+        game:GetService("StarterGui"):SetCore("PromptBlockPlayer", game.Players:GetPlayers()[math.random(2,#game.Players:GetPlayers())])
+        wait(0.3)
+        game:GetService("VirtualInputManager"):SendMouseButtonEvent(882, 640, 0, true, game, 0)
+        game:GetService("VirtualInputManager"):SendMouseButtonEvent(883, 640, 0, false, game, 0)
+        wait(0.5)
+        game.Players.LocalPlayer:Kick(msg)
+        wait(1)
+        game:GetService("TeleportService"):Teleport(3016661674, game.Players.LocalPlayer)
+    end
 end
 
 game:GetService("Workspace").Live.DescendantAdded:Connect(function(item)
