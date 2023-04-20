@@ -1,13 +1,9 @@
+syn.queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))
+
 repeat wait(1) until game:IsLoaded()
 
 local playergui = game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui")
 local gui = playergui:WaitForChild("StartMenu")
-
-if gui then
-    game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
-end
-
-syn.queue_on_teleport(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))
 
 local function hop(msg)
     game:GetService("StarterGui"):SetCore("PromptBlockPlayer", game.Players:GetPlayers()[math.random(2,#game.Players:GetPlayers())])
@@ -20,19 +16,15 @@ local function hop(msg)
     game:GetService("TeleportService"):Teleport(3016661674, game.Players.LocalPlayer)
 end
 
-for _, v in pairs(game:GetService("Players"):GetDescendants()) do
-    if v:IsA("Tool") and v.Name == "Perflora" then
-        hop("Druid in game.")
-    end
-end
-
-game:GetService("Players").DescendantAdded:Connect(function(item)
+game:GetService("Workspace").Live.DescendantAdded:Connect(function(item)
     if item.Name == "Perflora" and item:IsA("Tool") then
         hop("Druid in game.")
     end
 end)
 
-game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
+if gui then
+    game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
+end
 
 game:GetService("RunService").RenderStepped:Connect(function()
     for _, v in pairs(game.Players:GetPlayers()) do
