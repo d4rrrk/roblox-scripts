@@ -13,6 +13,14 @@ game:GetService("Players").LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(147
 wait(1)
 game:GetService("Players").LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(1479, -105, -5725))
 
+game:GetService("Workspace").Live.DescendantAdded:Connect(function(tool)
+    if tool:IsA("Tool") and tool.Name == "Perflora" or tool.Name == "Sagitta Sol" then
+        game:GetService("Players").LocalPlayer:Kick("Hopping Servers")
+        wait(1)
+        game:GetService("TeleportService"):Teleport(3016661674, game:GetService("Players").LocalPlayer)
+    end
+end)
+
 syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))()]])
 
 game:GetService("RunService").RenderStepped:Connect(function()
