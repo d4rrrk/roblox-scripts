@@ -5,9 +5,7 @@ end
 
 repeat wait(0.1) until game:FindFirstChild("Players")
 
-if not game:GetService("Players").LocalPlayer:FindFirstChild("Character") then
-    game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
-end
+game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 
 local hum = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
 
