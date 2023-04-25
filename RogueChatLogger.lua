@@ -43,4 +43,4 @@ players.PlayerAdded:Connect(function(plr)
     end)
 end)
 
-syn.queue_on_teleport(game:HttpGet("")())
+syn.queue_on_teleport(loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueChatLogger.lua"))())
