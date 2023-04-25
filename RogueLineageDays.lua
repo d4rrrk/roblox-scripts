@@ -7,7 +7,9 @@ repeat wait(0.1) until game:FindFirstChild("Players")
 
 game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 
-local hum = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
+local player = game:GetService("Players").LocalPlayer
+local character = player:WaitForChild("Character")
+local hum = character:WaitForChild("Humanoid")
 
 hum:MoveTo(Vector3.new(1479, -105, -5750))
 wait(1)
