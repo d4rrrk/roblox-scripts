@@ -1,4 +1,8 @@
-repeat wait(0.25) until game:FindFirstChild("Players")
+repeat wait(0.1) until game:FindFirstChild("Players")
+
+if game.PlaceId == 3016661674 then
+     syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueChatLogger.lua"))()]])
+end
 
 rconsolename("Chat logger")
 rconsoleprint("")
