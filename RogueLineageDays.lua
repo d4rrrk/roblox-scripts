@@ -8,7 +8,7 @@ repeat wait(0.1) until game:GetService("Players").LocalPlayer:FindFirstChild("Pl
 
 game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 
-repeat wait(0.1) until game:GetService("Players").LocalPlayer:FindFirstChild("Character")
+repeat wait(0.1) until game:GetService("Players").LocalPlayer.Character
 
 game:GetService("Players").LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(1479, -105, -5750))
 wait(1)
