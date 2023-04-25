@@ -1,4 +1,4 @@
-repeat wait(0.25) until game:IsLoaded()
+repeat wait(0.25) until game:FindFirstChild("Players")
 
 rconsolename("Chat logger")
 rconsoleprint("")
@@ -43,4 +43,4 @@ players.PlayerAdded:Connect(function(plr)
     end)
 end)
 
-syn.queue_on_teleport(loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueChatLogger.lua"))())
+syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueChatLogger.lua"))()]])
