@@ -1,10 +1,10 @@
 repeat wait(0.1) until game:FindFirstChild("Players")
 
 if game.PlaceId == 3016661674 then
-     syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueChatLogger.lua"))()]])
+    syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueChatLogger.lua"))()]])
 end
 
-rconsolename("Chat logger")
+rconsolename("Chat logs")
 rconsoleprint("")
 rconsoleclear()
 
@@ -45,6 +45,17 @@ players.PlayerAdded:Connect(function(plr)
             rconsoleprint("(In menu) "..plr.Name..": "..tostring(msg).."\n")
         end
     end)
+    if plr.Backpack:FindFirstChild("Observe") or plr.Character:FindFirstChild("Observe") then
+        rconsoleprint("@@YELLOW@@")
+        rconsoleprint(os.date("%H:%M:%S | ").."An illusionist ("..plr.Name..") has joined the game.")
+    end
+end)
+
+players.PlayerRemoving:Connect(function(plr)
+    if plr.Backpack:FindFirstChild("Observe") or plr.Character:FindFirstChild("Observe") then
+        rconsoleprint("@@WHITE@@")
+        rconsoleprint(os.date("%H:%M:%S | ").."An illusionist ("..plr.Name..") has left the game.")
+    end
 end)
 
 syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueChatLogger.lua"))()]])
