@@ -4,6 +4,7 @@ if game.PlaceId == 3016661674 then
 end
 
 repeat wait(0.1) until game:IsLoaded()
+repeat wait(0.1) until game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")
 
 game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 
