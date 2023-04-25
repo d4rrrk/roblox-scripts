@@ -9,7 +9,7 @@ if not game:GetService("Players").LocalPlayer:FindFirstChild("Character") then
     game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 end
 
-local hum = game:GetService("Players").LocalPlayer.Character.Humanoid
+local hum = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
 
 hum:MoveTo(Vector3.new(1479, -105, -5750))
 wait(1)
