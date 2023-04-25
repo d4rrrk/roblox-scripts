@@ -1,5 +1,5 @@
 repeat wait(1) until game:IsLoaded()
-repeat wait(0.1) until game:GetService("Players").LocalPlayer:FindFirstChild("PlayerGui")
+repeat wait(0.1) until game:GetService("Players").LocalPlayer.PlayerGui
 
 if game.PlaceId == 3016661674 then 
     syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))()]])
