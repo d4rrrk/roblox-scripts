@@ -1,4 +1,4 @@
-repeat wait(0.25) until game:GetService("Players"):FindFirstChild(LocalPlayer)
+repeat wait(0.25) until game:IsLoaded()
 
 rconsolename("Chat logger")
 rconsoleprint("")
