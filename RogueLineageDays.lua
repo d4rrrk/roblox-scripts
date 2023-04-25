@@ -8,11 +8,11 @@ repeat wait(0.1) until game:GetService("Players").LocalPlayer:FindFirstChild("Pl
 
 game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 
-local hum = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid")
+repeat wait(0.1) until game:GetService("Players").LocalPlayer:FindFirstChild("Character")
 
-hum:MoveTo(Vector3.new(1479, -105, -5750))
+game:GetService("Players").LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(1479, -105, -5750))
 wait(1)
-hum:MoveTo(Vector3.new(1479, -105, -5725))
+game:GetService("Players").LocalPlayer.Character.Humanoid:MoveTo(Vector3.new(1479, -105, -5725))
 
 syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))()]])
 
