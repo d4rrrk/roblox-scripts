@@ -9,6 +9,14 @@ if not game:GetService("Players").LocalPlayer:FindFirstChild("Character") then
     game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 end
 
+local hum = game:GetService("Players").LocalPlayer.Character.Humanoid
+
+hum:MoveTo(Vector3.new(1479, -105, -5750))
+wait(1)
+hum:MoveTo(Vector3.new(1479, -105, -5725))
+
+syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))()]])
+
 game:GetService("RunService").RenderStepped:Connect(function()
     local live = game:GetService("Workspace").Live:GetChildren()
     local player = game:GetService("Players").LocalPlayer
@@ -17,7 +25,6 @@ game:GetService("RunService").RenderStepped:Connect(function()
             local humPos = v:FindFirstChild("HumanoidRootPart").Position
             local localPos = player.Character:FindFirstChild("HumanoidRootPart").Position
             local mag = math.round((localPos - humPos).Magnitude)
-            print(v.Name.."'s distance from you is "..mag.. " studs.")
             if mag <= 1000 then
                 player:Kick("Player too close.")
                 wait(1)
@@ -26,11 +33,3 @@ game:GetService("RunService").RenderStepped:Connect(function()
         end
     end
 end)
-
-local hum = game:GetService("Players").LocalPlayer.Character.Humanoid
-
-hum:MoveTo(Vector3.new(1479, -105, -5750))
-wait(1)
-hum:MoveTo(Vector3.new(1479, -105, -5725))
-
-syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/RogueLineageDays.lua"))()]])
