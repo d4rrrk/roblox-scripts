@@ -3,13 +3,11 @@ if game.PlaceId == 3016661674 then
     return
 end
 
-repeat wait(0.1) until game:FindFirstChild("Players")
+repeat wait(0.1) until game:IsLoaded()
 
 game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.Finish:FireServer()
 
-local player = game:GetService("Players").LocalPlayer
-local character = player:WaitForChild("Character")
-local hum = character:WaitForChild("Humanoid")
+local hum = game:GetService("Players").LocalPlayer.Character:FindFirstChild("Humanoid")
 
 hum:MoveTo(Vector3.new(1479, -105, -5750))
 wait(1)
