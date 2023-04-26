@@ -16,5 +16,5 @@ live.DescendantAdded:Connect(function(tool)
     end
 end)
 
-syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/DruidCheck.lua"))()]])
 print("ok")
+syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/DruidCheck.lua"))()]])
