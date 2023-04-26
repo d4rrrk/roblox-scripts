@@ -7,6 +7,12 @@ repeat wait(0.1) until game:IsLoaded();repeat wait(0.1) until game:GetService("W
 
 local live = game:GetService("Workspace").Live
 local player = game:GetService("Players").LocalPlayer
+local virtualUser = game:GetService("VirtualUser")
+
+player.Idled:connect(function()
+    virtualUser:CaptureController()
+    virtualUser:ClickButton2(Vector2.new())
+end)
 
 live.DescendantAdded:Connect(function(tool)
     if tool:IsA("Tool") and tool.Name == "Perflora" or tool.Name == "Sagitta Sol" then
