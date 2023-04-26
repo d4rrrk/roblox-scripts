@@ -14,6 +14,8 @@ player.Idled:connect(function()
     virtualUser:ClickButton2(Vector2.new())
 end)
 
+repeat wait(0.1) until game:GetService("Workspace").Live:FindFirstChild(player.Name)
+
 live.DescendantAdded:Connect(function(tool)
     if tool:IsA("Tool") and tool.Name == "Perflora" or tool.Name == "Sagitta Sol" then
         player:Kick("Hopping Servers")
@@ -22,5 +24,11 @@ live.DescendantAdded:Connect(function(tool)
     end
 end)
 
-print("ok")
+local hum = player.Character.Humanoid
+
+hum:MoveTo(Vector3.new(1479, -105, -5750))
+wait(1)
+hum:MoveTo(Vector3.new(1479, -105, -5725))
+
+print("200 OK")
 syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/DruidCheck.lua"))()]])
