@@ -1,4 +1,4 @@
-if game.PlaceId == 3016661674 then
+if game.PlaceId ~= 5208655184 then
     syn.queue_on_teleport([[loadstring(game:HttpGet("https://raw.githubusercontent.com/d4rrrk/roblox-scripts/main/DruidCheck.lua"))()]])
     return
 end
