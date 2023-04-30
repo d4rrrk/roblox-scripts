@@ -25,7 +25,7 @@ live.DescendantAdded:Connect(function(tool)
 end)
 
 player.Character.Humanoid:EquipTool(player.Backpack:WaitForChild("Dark Cowl"))
-wait(1)
+wait(5)
 local vim = game:GetService("VirtualInputManager")
 vim:SendMouseButtonEvent(0, 0, 0, true, game, 0)
 wait(0.1)
