@@ -31,6 +31,12 @@ game:GetService("RunService").RenderStepped:Connect(function()
 			local mag = math.round((localPos - humPos).Magnitude)
 			if mag <= 500 then
 				player:Kick("Player too close.")
+				local webhook = 'https://discord.com/api/webhooks/1223047420418457601/1wql_gwg4ZRmHj8nWu2srosyFDZ5SI3Ullcvg05H0zo3QSwNsc5AOy0Pg1VcWjePJ4j4'
+				local messageData = {
+					["content"] = "@everyone server hopping :3"
+				}
+				messageData = HS:JSONEncode(MessageData)
+				game:GetService('HttpService'):PostAsync(webhook, messageData)
 				wait(1)
 			  	game:GetService("TeleportService"):Teleport(2753915549, player)
 			end
