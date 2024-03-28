@@ -29,7 +29,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 			local humPos = v.Character:FindFirstChild('HumanoidRootPart').Position
 			local localPos = player.Character:FindFirstChild("HumanoidRootPart").Position
 			local mag = math.round((localPos - humPos).Magnitude)
-			if mag <= 1000 then
+			if mag <= 500 then
 				player:Kick("Player too close.")
 				wait(1)
 			  	game:GetService("TeleportService"):Teleport(2753915549, player)
