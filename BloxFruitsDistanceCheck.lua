@@ -1,4 +1,23 @@
--- Blox Fruits distance checker
+--[[
+DDDDDDDDDDDDD               444444444                     kkkkkkkk           
+D::::::::::::DDD           4::::::::4                     k::::::k           
+D:::::::::::::::DD        4:::::::::4                     k::::::k           
+DDD:::::DDDDD:::::D      4::::44::::4                     k::::::k           
+  D:::::D    D:::::D    4::::4 4::::4  rrrrr   rrrrrrrrr   k:::::k    kkkkkkk
+  D:::::D     D:::::D  4::::4  4::::4  r::::rrr:::::::::r  k:::::k   k:::::k 
+  D:::::D     D:::::D 4::::4   4::::4  r:::::::::::::::::r k:::::k  k:::::k  
+  D:::::D     D:::::D4::::444444::::444rr::::::rrrrr::::::rk:::::k k:::::k   
+  D:::::D     D:::::D4::::::::::::::::4 r:::::r     r:::::rk::::::k:::::k    
+  D:::::D     D:::::D4444444444:::::444 r:::::r     rrrrrrrk:::::::::::k     
+  D:::::D     D:::::D          4::::4   r:::::r            k:::::::::::k     
+  D:::::D    D:::::D           4::::4   r:::::r            k::::::k:::::k    
+DDD:::::DDDDD:::::D            4::::4   r:::::r           k::::::k k:::::k   
+D:::::::::::::::DD           44::::::44 r:::::r           k::::::k  k:::::k  
+D::::::::::::DDD             4::::::::4 r:::::r           k::::::k   k:::::k 
+DDDDDDDDDDDDD                4444444444 rrrrrrr           kkkkkkkk    kkkkkkk
+
+Blox Fruits distance checker
+]]--
 
 repeat wait(1) until game.Players.LocalPlayer.Character
 
@@ -10,11 +29,10 @@ game:GetService("RunService").RenderStepped:Connect(function()
 			local humPos = v.Character:FindFirstChild('HumanoidRootPart').Position
 			local localPos = player.Character:FindFirstChild("HumanoidRootPart").Position
 			local mag = math.round((localPos - humPos).Magnitude)
-			print(v.Name.."'s distance from you is "..mag.. " studs.")
-			if mag <= 750 then
+			if mag <= 1000 then
 				player:Kick("Player too close.")
 				wait(1)
-			  game:GetService("TeleportService"):Teleport(2753915549, player)
+			  	game:GetService("TeleportService"):Teleport(2753915549, player)
 			end
 		end
 	end
