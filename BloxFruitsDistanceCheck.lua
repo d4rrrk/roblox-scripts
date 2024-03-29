@@ -35,7 +35,7 @@ game:GetService("RunService").RenderStepped:Connect(function()
 				local messageData = {
 					["content"] = "@everyone server hopping :3"
 				}
-				messageData = HS:JSONEncode(MessageData)
+				messageData = game:GetService('HttpService'):JSONEncode(MessageData)
 				game:GetService('HttpService'):PostAsync(webhook, messageData)
 				wait(1)
 			  	game:GetService("TeleportService"):Teleport(2753915549, player)
